@@ -1,6 +1,6 @@
 # Digg-project
 
-**The project from the Udemy HTML & CSS course.**
+**My own project developed to increase Gulp and SCSS knowledge.**
 
 + responsive
 + HTML
