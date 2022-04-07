@@ -1,0 +1,11 @@
+.section__brands {
+  padding: 75px 0;
+  .brands{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .brand__item {
+      margin: 25px;
+    }
+  }
+}

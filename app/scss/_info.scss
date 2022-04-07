@@ -1,0 +1,28 @@
+.section__info{
+  background: #faf9f6;
+  padding: 100px 0;
+  .info__title{
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .info__text{
+    font-style: normal;
+    font-weight: 500;
+    font-style: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000;
+    max-width: 600px;
+    margin: 30px auto;
+  }
+  .info__line {
+    margin: 65px auto 0 auto;
+    display: block;
+    max-width: 400px;
+    @media (max-width: 600px){
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

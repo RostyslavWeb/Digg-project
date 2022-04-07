@@ -1,0 +1,178 @@
+// nm
+nav {
+  background-color: #000;
+  overflow: hidden;
+  &.fixed__nav {
+    background: #000;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 111;
+  }
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 25px 0;
+    align-items: center;
+
+    .menu {
+      display: block;
+    }
+    .logo {
+      z-index: 1;
+      &__img {
+        height: 28px;
+      }
+    }
+    .menu__list {
+      display: flex;
+      z-index: 1;
+      &-item {
+        margin-right: 30px;
+        position: relative;
+        &:hover {
+          a {
+            color: #f9d867;
+            transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+          }
+          &:after {
+            width: 75px;
+            transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+          }
+        }
+        &:after {
+          position: absolute;
+          content: "";
+          height: 1px;
+          bottom: -5px;
+          left: -15px;
+          background: #f9d867;
+          width: 0;
+        }
+        a {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 15px;
+          text-align: center;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #fff;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    .nav__btn {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+      color: #fff;
+      border: 0.5px solid #fff;
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 10px 20px;
+      &:hover {
+        border: 0.5px solid #f9d867;
+        background: #f9d867;
+        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+        color: #000;
+      }
+    }
+  }
+}
+
+// ************************ Burger menu ************************ //
+.burger {
+  display: none;
+  cursor: pointer;
+}
+.menu__list.active {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  z-index: 101 !important;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+// Тут указываем тот брейкпоинт, на котором нам нужно прятать обычное меню и показывать уже бургер.
+// Так же это значение ставим в файле navbar.js
+@media screen and (max-width: 768px) {
+  .burger {
+    display: block;
+    position: relative;
+    height: 20px;
+    width: 30px;
+    z-index: 102;
+    cursor: pointer;
+    &.active-burger {
+      &:before {
+        background: #fff;
+        transform: rotate(45deg);
+        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+        top: 8px;
+      }
+      &:after {
+        background: #fff;
+        transform: rotate(-45deg);
+        bottom: 10px;
+        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+      }
+      & span {
+        transform: scale(0);
+      }
+    }
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: white;
+      transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    }
+    &:before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    span {
+      position: absolute;
+      top: 9px;
+      right: 0;
+      width: 100%;
+      background: white;
+      height: 2px;
+      transform: scale(1);
+      transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    }
+  }
+  .menu__list {
+    position: absolute;
+    top: -100%;
+    &-item {
+      margin-right: 0 !important;
+      margin: 25px 0 !important;
+      a {
+        color: black;
+        font-size: 36px !important;
+        @media (max-width: 500px) {
+          font-size: 25px !important;
+        }
+      }
+    }
+  }
+}
